@@ -8,7 +8,9 @@ OptionParser.new do |opts|
   opts.banner = "Usage: wc.rb [options]"
 
   opts.on("-c") do |c| #подсчитать число символов
-    puts text.delete(' ').length - text.split("\n").length
+    i = 0
+    text.each_byte {i += 1}
+    puts i
   end
 
   opts.on("-w") do |w| #подсчитать число слов
